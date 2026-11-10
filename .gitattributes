@@ -1,0 +1,5 @@
+# Normalize repository text files to LF on every platform
+* text=auto eol=lf
+
+# Git hooks must remain shell-compatible
+.githooks/** text eol=lf

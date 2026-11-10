@@ -1,0 +1,13 @@
+pub mod check;
+pub mod detect;
+pub mod doctor;
+pub mod history_check;
+pub mod hook;
+pub mod ignore_check;
+pub mod init;
+pub mod install;
+pub mod integrate;
+pub mod lfs_check;
+pub mod preset;
+pub mod remote_check;
+pub mod scan;

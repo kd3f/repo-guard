@@ -1,0 +1,89 @@
+name: Bug report
+description: Report incorrect behavior, crashes, or policy results that do not match documentation
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please redact secrets, tokens, and private repository URLs.
+
+  - type: input
+    id: version
+    attributes:
+      label: Repo Guard version
+      description: Output of `repo-guard --version`
+      placeholder: "repo-guard 0.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: git
+    attributes:
+      label: Git version
+      description: Output of `git --version`
+    validations:
+      required: true
+
+  - type: input
+    id: git_lfs
+    attributes:
+      label: Git LFS version
+      description: Output of `git lfs version`, or "not installed"
+    validations:
+      required: true
+
+  - type: textarea
+    id: hooks
+    attributes:
+      label: Hook manager / hooks setup
+      description: e.g. standalone `.githooks`, pre-commit, Husky, Lefthook, custom `core.hooksPath`, or none
+      placeholder: |
+        repo-guard detect output (text or JSON) is helpful here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal Git/repo steps and Repo Guard commands
+      placeholder: |
+        1. git init ...
+        2. repo-guard init --apply
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / output
+      description: stdout/stderr from Repo Guard (text or JSON). Exit code if known.
+      render: shell

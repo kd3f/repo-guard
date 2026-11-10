@@ -1,0 +1,12 @@
+#!/bin/sh
+# Repo Guard pre-push hook: validate outgoing objects from ref updates, then delegate to Git LFS.
+set -eu
+if ! command -v repo-guard >/dev/null 2>&1; then
+  echo "repo-guard: not found on PATH; install with \"cargo install --path . --locked\" and add Cargo's bin directory to PATH" >&2
+  exit 3
+fi
+REF_STDIN="$(mktemp -t repo-guard-pre-push.XXXXXX)"
+trap 'rm -f "$REF_STDIN"' EXIT INT TERM
+cat > "$REF_STDIN"
+repo-guard hook pre-push < "$REF_STDIN" || exit $?
+git lfs pre-push "$@" < "$REF_STDIN"

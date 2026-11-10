@@ -1,0 +1,7 @@
+- id: repo-guard-check
+  name: repo-guard staged index check
+  description: Validates the Git staged index against Repo Guard file-policy rules.
+  entry: repo-guard check
+  language: system
+  pass_filenames: false
+  stages: [pre-commit]

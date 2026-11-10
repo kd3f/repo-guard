@@ -1,0 +1,8 @@
+schema_version = 1
+lfs_threshold_mib = 50
+github_safety_ceiling_mib = 95
+block_small_lfs_files = false
+output_format = "text"
+
+# Optional paths validated by `repo-guard ignore check`
+# ignored_paths = ["build/", "dist/"]

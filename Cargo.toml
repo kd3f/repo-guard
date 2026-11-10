@@ -1,0 +1,30 @@
+[package]
+name = "repo-guard"
+version = "0.2.0"
+edition = "2021"
+description = "Git and Git LFS file-safety policy for staged-index checks and outgoing-history validation"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/kd3f/repo-guard"
+keywords = ["git", "git-lfs", "hooks", "pre-commit", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "repo-guard"
+path = "src/main.rs"
+
+[lib]
+name = "repo_guard"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+toml = "0.8"
+walkdir = "2"
+
+[dev-dependencies]
+tempfile = "3"
+serde_json = "1"

@@ -1,0 +1,58 @@
+name: Feature request
+description: Suggest an improvement to Git/Git LFS file-safety validation
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Repo Guard is a **file-safety policy engine**, not a general hook manager or CI platform.
+        Requests should focus on Git/Git LFS workflow pain (staged index, outgoing objects, LFS tracking, ignore diagnostics).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What Git or Git LFS mistake are you trying to prevent or diagnose?
+      placeholder: |
+        e.g. "Teams keep pushing large Unity asset bundles as regular blobs because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Command, flag, hook, or CI pattern you envision
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: pre-commit hooks, server-side hooks, manual policy, other tools
+    validations:
+      required: false
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Primary use mode
+      options:
+        - Standalone `.githooks`
+        - pre-commit integration
+        - Husky / Lefthook integration
+        - CI only
+        - Local CLI only
+        - Unsure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope acknowledgment
+      options:
+        - label: I understand external-manager pre-push integration is not supported in v0.2.0
+          required: true

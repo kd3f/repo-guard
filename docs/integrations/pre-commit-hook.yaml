@@ -1,0 +1,10 @@
+# Copy the published manifest from the repo root (`.pre-commit-hooks.yaml`).
+# Place this hook AFTER formatters or fixers that modify the staged index.repos:
+  - repo: local
+    hooks:
+      - id: repo-guard-check
+        name: repo-guard staged index check
+        entry: repo-guard check
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
